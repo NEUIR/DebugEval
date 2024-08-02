@@ -1,10 +1,10 @@
 # 1、DebugEval
 ## 1.1 First we need to deploy the assessment model to the server.
+```bash
 cd DebugEval/src/serve
-
 source source.sh
 nohup bash serve_ckpt.sh your_model_path>serve.log 2>&1 &
-
+```
 ## 1.2 model evaluation
 cd DebugEval/src/script
 
