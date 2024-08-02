@@ -1,5 +1,5 @@
 # 1、DebugEval
-## 1.1 First we need to deploy the assessment model to the server.
+## 1.1 Firstly, we need to deploy the Models that need to be evaluated to the server.
 ```bash
 cd DebugEval/src/serve
 source source.sh
@@ -9,15 +9,16 @@ nohup bash serve_ckpt.sh your_model_path>serve.log 2>&1 &
 cd DebugEval/src/script
 
 ### 1.2.1 BUG Localization Task
-(1) Inference
+#### (1) Inference Stage
 
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
+    
     python src/inference/main.py \
         --model "deepseek-6.7b" \
-        --data_path "debugevalsuite_task124.jsonl" \
-        --prompt_dir "src/prompts" \
-        --output_dir "Your_output_path" \
+        --data_path "Data/eval/debugevalsuite_task124.jsonl" \
+        --prompt_dir "DebugEval/src/prompts" \
+        --output_dir "" \
         --task "error_code_localization" \
         --prompt_type "zero_shot" \
         --platform "all" \
@@ -28,19 +29,20 @@ cd DebugEval/src/script
         
     nohup bash error_code_localization.sh 
     
-(2) Evaluate
-    Run the code by changing the data path in the ".\bug_loc_calculate_acc.py" file.
+#### (2) Evaluate Stage
+    Run the code by changing the data path in the "OJ_Evaluate\bug_loc_calculate_acc.py" file.
     
 ### 1.2.2 BUG Identification Task
-(1) Inference
+#### (1) Inference Stage
 
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
+    
     python src/inference/main.py \
         --model "deepseek-6.7b" \
-        --data_path "debugevalsuite_task124.jsonl" \
-        --prompt_dir "src/prompts" \
-        --output_dir "Your_output_path" \
+        --data_path "Data/eval/debugevalsuite_task124.jsonl" \
+        --prompt_dir "DebugEval/src/prompts" \
+        --output_dir "" \
         --task "error_type_identification" \
         --prompt_type "zero_shot" \
         --platform "all" \
@@ -48,54 +50,14 @@ cd DebugEval/src/script
         --temperature 0.2 \
         --top_p 0.95 \
         --max_tokens 1024
-        
+            
     nohup bash error_type_identification.sh
 
-(2) Evaluate
-    Run the code by changing the data path in the ".\bug_iden_calculate_acc.py" file.
-    
-### 1.2.3 Code Review Task
-(1) Inference
+#### (2) Evaluate Stage
+    Run the code by changing the data path in the "OJ_Evaluate\bug_iden_calculate_acc.py" file.
 
-    #export CUDA_VISIBLE_DEVICES=1,3
-    #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
-    python src/inference/main.py \
-        --model "deepseek-6.7b" \
-        --data_path "debugevalsuite_task124.jsonl" \
-        --prompt_dir "src/prompts" \
-        --output_dir "Your_output_path" \
-        --task "code_review" \
-        --prompt_type "zero_shot" \
-        --platform "all" \
-        --n 1 \
-        --temperature 0.2 \
-        --top_p 0.95 \
-        --max_tokens 1024
-
-    nohup bash code_review.sh
-
-    #export CUDA_VISIBLE_DEVICES=1,3
-    #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
-    python src/inference/main.py \
-        --model "deepseek-6.7b" \
-        --data_path "debugevalsuite_task124.jsonl" \
-        --prompt_dir "src/prompts" \
-        --output_dir "Your_output_path" \
-        --task "code_review_reverse" \
-        --prompt_type "zero_shot" \
-        --platform "all" \
-        --n 1 \
-        --temperature 0.2 \
-        --top_p 0.95 \
-        --max_tokens 1024
-
-    nohup bash code_review_reversh.sh
-
-(2) Evaluate
-    Run the code by changing the data path in the ".\code_rev_calculate_acc.py" file.
-    
-### 1.2.4 Code Repair Task
-(1) Inference
+### 1.2.3 Code Repair Task
+#### (1) Inference Stage
 
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
@@ -112,70 +74,115 @@ cd DebugEval/src/script
         --top_p 0.95 \
         --max_tokens 1024
 
-    execute nohup bash code_repair.sh
+    nohup bash code_repair.sh
     
-(2) Evaluate
-#### We use a self-designed OJ evaluation system to evaluate the generated code. Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.
+#### (2) Evaluate Stage
+##### We use a self-designed OJ evaluation system to evaluate the generated code. Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.
 
-1) The results of model inference are processed in the following form
-    ```
-      atcoder_code_error_judge
-    │  
-    ├─Python_Code
-    │  ├─problem_id abc331_a
-    │  │   response.py
-    │  │      
-    │  ├─problem abc331_b
-    │  │   response.py
-    │  │
-    ├─Cpp_Code
-    │  ├─problem_id abc331_a
-    │  │   response.cpp
-    │  │      
-    │  ├─problem abc331_b
-    │  │   response.cpp
-    │  │
-    ├─Java_Code
-    │  ├─problem_id abc331_a
-    │  │   Main.java
-    │  │      
-    │  ├─problem abc331_b
-    │  │   Main.java
-    │  │
-    ├─Input
-    │          
-    └─Output
-    ```
+    1) The results of model inference are processed in the following form
+        ```
+          atcoder_code_error_judge
+        │  
+        ├─Python_Code
+        │  ├─problem_id abc331_a
+        │  │   response.py
+        │  │      
+        │  ├─problem abc331_b
+        │  │   response.py
+        │  │
+        ├─Cpp_Code
+        │  ├─problem_id abc331_a
+        │  │   response.cpp
+        │  │      
+        │  ├─problem abc331_b
+        │  │   response.cpp
+        │  │
+        ├─Java_Code
+        │  ├─problem_id abc331_a
+        │  │   Main.java
+        │  │      
+        │  ├─problem abc331_b
+        │  │   Main.java
+        │  │
+        ├─Input
+        │          
+        └─Output
+        ```
+    
+    2) Adjust the parameters in "OJ_Evaluate\ CodeError_judger-main \config.yml" and then run pattern2.py.
+    
+        ```yml
+        # Use parameters in config.yml or in command
+        use_config: True # Use parameters in config.yml when it's true, use parameters in command when it's false
+        
+        # Pattern1: For one problem testing
+        problem_name: "abc275_A" # the problem you want to test
+        multi_code_dir: D:/_Code_/ABC Data/codes of one user/abc275_A  # one problem, many code for the problem
+        
+        # Pattern2: For multi-problem testing
+        code_dir: OJ_Evaluate/atcoder_code_error_judge/code  # many problems, many code for each problem
+        
+        # All the input and output data
+        input_dir: OJ_Evaluate/atcoder_code_error_judge/Input
+        answer_dir: OJ_Evaluate/atcoder_code_error_judge/Output
+        
+        # timeLimit and memoryLimit for all problems
+        timeLimit: 10        # seconds
+        memoryLimit: 1024    # MBs
+        showDetails: False   # Whether to display the results of each test point
+        ```
+    3) Run the code by changing the data path in the "OJ_Evaluate\code_rep_calculate_acc.py" file.
+ 
+### 1.2.4 Code Review Task
+#### (1) Inference Stage
 
-2) Adjust the parameters in ".\oj\ CodeError_judger-main \config.yml" and then run pattern2.py.
+    #export CUDA_VISIBLE_DEVICES=1,3
+    #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
+    
+    python src/inference/main.py \
+        --model "deepseek-6.7b" \
+        --data_path "Data/eval/debugevalsuite_task124.jsonl" \
+        --prompt_dir "DebugEval/src/prompts" \
+        --output_dir "" \
+        --task "code_review" \
+        --prompt_type "zero_shot" \
+        --platform "all" \
+        --n 1 \
+        --temperature 0.2 \
+        --top_p 0.95 \
+        --max_tokens 1024
 
-    ```yml
-    # Use parameters in config.yml or in command
-    use_config: True # Use parameters in config.yml when it's true, use parameters in command when it's false
+    nohup bash code_review.sh
+
+    #export CUDA_VISIBLE_DEVICES=1,3
+    #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
     
-    # Pattern1: For one problem testing
-    problem_name: "abc275_A" # the problem you want to test
-    multi_code_dir: D:/_Code_/ABC Data/codes of one user/abc275_A  # one problem, many code for the problem
+    python src/inference/main.py \
+        --model "deepseek-6.7b" \
+        --data_path "Data/eval/debugevalsuite_task124.jsonl" \
+        --prompt_dir "DebugEval/src/prompts" \
+        --output_dir "" \
+        --task "code_review_reverse" \
+        --prompt_type "zero_shot" \
+        --platform "all" \
+        --n 1 \
+        --temperature 0.2 \
+        --top_p 0.95 \
+        --max_tokens 1024
+
+    nohup bash code_review_reversh.sh
+
+#### (2) Evaluate
+    Run the code by changing the data path in the "OJ_Evaluate\code_rev_calculate_acc.py" file.
     
-    # Pattern2: For multi-problem testing
-    code_dir: ./atcoder_code_error_judge/code  # many problems, many code for each problem
-    
-    # All the input and output data
-    input_dir: ./atcoder_code_error_judge/Input
-    answer_dir: ./atcoder_code_error_judge/Output
-    
-    # timeLimit and memoryLimit for all problems
-    timeLimit: 10        # seconds
-    memoryLimit: 1024    # MBs
-    showDetails: False  # Whether to display the results of each test point
-    ```
-3) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
+
 
 # 2、Fine-tune
 ## 2.1 DeepSeek-Coder-6.7B-Ins
-cd .\SFT\neural_compiler\src\scripts
+### Change the parameters of fine-tune-deepseek-coder.sh, then execute the file
+cd Fine-Tune\neural_compiler\src\scripts
 ```bash
-DATA_PATH="fine-tune-data" 
+DATA_PATH="Data\train\fine-tune-data" 
 OUTPUT_PATH=""
 MODEL_PATH="" 
 DS_CONFIG="ds_config_deepseek_coder.json"
@@ -204,6 +211,9 @@ deepspeed --include=localhost:1,2 src/finetune/fine-tune-deepseek-coder.py \
 nohup bash fine-tune-deepseek-coder.sh>train.log 2>&1 &
 ```
 ## 2.2 For Llama3-8B-Ins
+### (1) We need to copy the fine-tune-data.json into the "LlaMa-Facory\data" directory and then add the dataset to the dataset_info.json file.
+
+### (2) Change the parameters in the run.sh file to execute the file.
 cd .\SFT\LLaMA-Factory
 ```bash
 CUDA_VISIBLE_DEVICES=2,3  llamafactory-cli train \
