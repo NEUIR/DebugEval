@@ -109,32 +109,32 @@ cd DebugEval/src/script
 #### Due to the large number of test cases of the original data, we could not upload such a large file, so we sample half of the data and keep their test cases for everyone to test. 
 1) The results of model inference are processed in the following form
    
-  atcoder_code_error_judge
-│  
-├─Python_Code
-│  ├─problem_id abc331_a
-│  │   response.py
-│  │      
-│  ├─problem abc331_b
-│  │   response.py
-│  │
-├─Cpp_Code
-│  ├─problem_id abc331_a
-│  │   response.cpp
-│  │      
-│  ├─problem abc331_b
-│  │   response.cpp
-│  │
-├─Java_Code
-│  ├─problem_id abc331_a
-│  │   Main.java
-│  │      
-│  ├─problem abc331_b
-│  │   Main.java
-│  │
-├─Input
-│          
-└─Output
+      atcoder_code_error_judge
+    │  
+    ├─Python_Code
+    │  ├─problem_id abc331_a
+    │  │   response.py
+    │  │      
+    │  ├─problem abc331_b
+    │  │   response.py
+    │  │
+    ├─Cpp_Code
+    │  ├─problem_id abc331_a
+    │  │   response.cpp
+    │  │      
+    │  ├─problem abc331_b
+    │  │   response.cpp
+    │  │
+    ├─Java_Code
+    │  ├─problem_id abc331_a
+    │  │   Main.java
+    │  │      
+    │  ├─problem abc331_b
+    │  │   Main.java
+    │  │
+    ├─Input
+    │          
+    └─Output
 
 3) Adjust the parameters in ".\oj\ CodeError_judger-main \config.yml" and then run pattern2.py.
 4) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
