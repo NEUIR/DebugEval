@@ -181,7 +181,7 @@ cd DebugEval/src/script
 
 # 2、Fine-tune
 ## 2.1 DeepSeek-Coder-6.7B-Ins
-### Change the parameters of fine-tune-deepseek-coder.sh, then execute the file
+#### Change the parameters of fine-tune-deepseek-coder.sh, then execute the file
 cd Fine-Tune\neural_compiler\src\scripts
 ```bash
 DATA_PATH="Data\train\fine-tune-data" 
@@ -213,9 +213,9 @@ deepspeed --include=localhost:1,2 src/finetune/fine-tune-deepseek-coder.py \
 nohup bash fine-tune-deepseek-coder.sh>train.log 2>&1 &
 ```
 ## 2.2 For Llama3-8B-Ins
-### (1) We need to copy the fine-tune-data.json into the "LlaMa-Facory\data" directory and then add the dataset to the dataset_info.json file.
+#### (1) We need to copy the fine-tune-data.json into the "LlaMa-Facory\data" directory and then add the dataset to the dataset_info.json file.
 
-### (2) Change the parameters in the run.sh file to execute the file.
+#### (2) Change the parameters in the run.sh file to execute the file.
 cd Fine-Tune\LLaMA-Factory
 ```bash
 CUDA_VISIBLE_DEVICES=2,3  llamafactory-cli train \
