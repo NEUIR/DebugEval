@@ -162,9 +162,65 @@ cd DebugEval/src/script
 4) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
 
 # Fine-tune
-# For DeepSeek-Coder-6.7B-Ins
+## For DeepSeek-Coder-6.7B-Ins
 cd .\SFT\neural_compiler\src\scripts
-nohup bash fine-tune-deepseek-coder.sh>train.log 2>&1 &
-# For Llama3-8B-Ins
+
+DATA_PATH="fine-tune-data" 
+OUTPUT_PATH=""
+MODEL_PATH="" 
+DS_CONFIG="ds_config_deepseek_coder.json"
+deepspeed --include=localhost:1,2 src/finetune/fine-tune-deepseek-coder.py \
+    --model_name_or_path $MODEL_PATH \
+    --data_path $DATA_PATH \
+    --output_dir $OUTPUT_PATH \
+    --num_train_epochs 1 \
+    --model_max_length 2048 \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 1 \
+    --gradient_accumulation_steps 4 \
+    --evaluation_strategy "no" \
+    --save_strategy "epoch" \
+    --save_steps 100 \
+    --learning_rate 2e-5 \
+    --warmup_steps 30 \
+    --logging_steps 1 \
+    --lr_scheduler_type "cosine" \
+    --gradient_checkpointing True \
+    --report_to "tensorboard" \
+    --deepspeed $DS_CONFIG \
+    --bf16 True \
+    --use_lora True
+    
+execute nohup bash fine-tune-deepseek-coder.sh>train.log 2>&1 &
+## For Llama3-8B-Ins
 cd .\SFT\LLaMA-Factory
+
+CUDA_VISIBLE_DEVICES=2,3  llamafactory-cli train \
+    --stage sft \
+    --do_train \
+    --model_name_or_path MODEL_PATH \
+    --dataset  your_data_name\
+    --dataset_dir LLaMA-Factory/data \
+    --template llama3 \
+    --finetuning_type lora \
+    --lora_target all \
+    --output_dir  Your_output_path\
+    --overwrite_cache \
+    --overwrite_output_dir \
+    --cutoff_len 2048 \
+    --preprocessing_num_workers 16 \
+    --per_device_train_batch_size 8 \
+    --gradient_accumulation_steps 4 \
+    --lr_scheduler_type cosine \
+    --logging_steps 1 \
+    --warmup_steps 30 \
+    --save_steps 100 \
+    --save_strategy "epoch" \
+    --evaluation_strategy "no" \
+    --learning_rate 2e-5 \
+    --num_train_epochs 1.0 \
+    --val_size 0 \
+    --plot_loss \
+    --fp16
+    
 nohup bash run.sh>train.log 2>&1 &
