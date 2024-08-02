@@ -8,7 +8,7 @@ cd DebugEval/src/script
 ## for BUG Localization Task
 (1) Inference
     nohup bash error_code_localization.sh
-    '''
+    
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
     python src/inference/main.py \
@@ -23,7 +23,7 @@ cd DebugEval/src/script
         --temperature 0.2 \
         --top_p 0.95 \
         --max_tokens 1024
-    '''
+        
 (2) Evaluate
     Run the code by changing the data path in the ".\bug_loc_calculate_acc.py" file.
 ## for BUG Identification Task
