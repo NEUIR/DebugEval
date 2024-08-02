@@ -80,7 +80,7 @@ cd DebugEval/src/script
 ##### We use a self-designed OJ evaluation system to evaluate the generated code. Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.
 
     1) The results of model inference are processed in the following form
-        ```bash
+    ```
           atcoder_code_error_judge
         │  
         ├─Python_Code
@@ -107,7 +107,7 @@ cd DebugEval/src/script
         ├─Input
         │          
         └─Output
-        ```
+    ```
     
     2) Adjust the parameters in "OJ_Evaluate\ CodeError_judger-main \config.yml" and then run pattern2.py.
     
