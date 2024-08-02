@@ -77,8 +77,8 @@ cd DebugEval/src/script
     nohup bash code_repair.sh
     
 #### (2) Evaluate Stage
+#### We use a self-designed OJ evaluation system to evaluate the generated code. Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.
 
-    We use a self-designed OJ evaluation system to evaluate the generated code. Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.
     1) The results of model inference are processed in the following form:
     
         ```
