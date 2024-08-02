@@ -17,7 +17,7 @@ cd DebugEval/src/script
 ## for Code Repair Task
 (1) Inference
 (2) Evaluate
-# We use a self-designed OJ evaluation system to evaluate the generated code
+### We use a self-designed OJ evaluation system to evaluate the generated code
 
 # Fine-tune
 # For DeepSeek-Coder-6.7B-Ins
