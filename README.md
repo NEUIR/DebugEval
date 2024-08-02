@@ -80,7 +80,7 @@ cd DebugEval/src/script
 ##### We use a self-designed OJ evaluation system to evaluate the generated code. Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.
 
     1) The results of model inference are processed in the following form
-        ```
+        ```bash
           atcoder_code_error_judge
         │  
         ├─Python_Code
@@ -131,6 +131,7 @@ cd DebugEval/src/script
         memoryLimit: 1024    # MBs
         showDetails: False   # Whether to display the results of each test point
         ```
+        
     3) Run the code by changing the data path in the "OJ_Evaluate\code_rep_calculate_acc.py" file.
  
 ### 1.2.4 Code Review Task
@@ -172,7 +173,7 @@ cd DebugEval/src/script
 
     nohup bash code_review_reversh.sh
 
-#### (2) Evaluate
+#### (2) Evaluate Stage
     Run the code by changing the data path in the "OJ_Evaluate\code_rev_calculate_acc.py" file.
     
 
@@ -214,7 +215,7 @@ nohup bash fine-tune-deepseek-coder.sh>train.log 2>&1 &
 ### (1) We need to copy the fine-tune-data.json into the "LlaMa-Facory\data" directory and then add the dataset to the dataset_info.json file.
 
 ### (2) Change the parameters in the run.sh file to execute the file.
-cd .\SFT\LLaMA-Factory
+cd Fine-Tune\LLaMA-Factory
 ```bash
 CUDA_VISIBLE_DEVICES=2,3  llamafactory-cli train \
     --stage sft \
