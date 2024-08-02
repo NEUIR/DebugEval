@@ -136,6 +136,7 @@ cd DebugEval/src/script
     │          
     └─Output
 ```
+
 3) Adjust the parameters in ".\oj\ CodeError_judger-main \config.yml" and then run pattern2.py.
 
 ```yml
