@@ -1,13 +1,13 @@
-# DebugEval
-## First we need to deploy the assessment model to the server.
+# 1、DebugEval
+## 1.1 First we need to deploy the assessment model to the server.
 cd DebugEval/src/serve
 source source.sh
 nohup bash serve_ckpt.sh your_model_path>serve.log 2>&1 &
 
-## model evaluation
+## 1.2 model evaluation
 cd DebugEval/src/script
 
-### BUG Localization Task
+### 1.2.1 BUG Localization Task
 (1) Inference
 
     #export CUDA_VISIBLE_DEVICES=1,3
@@ -30,7 +30,7 @@ cd DebugEval/src/script
 (2) Evaluate
     Run the code by changing the data path in the ".\bug_loc_calculate_acc.py" file.
     
-### BUG Identification Task
+### 1.2.2 BUG Identification Task
 (1) Inference
 
     #export CUDA_VISIBLE_DEVICES=1,3
@@ -53,7 +53,7 @@ cd DebugEval/src/script
 (2) Evaluate
     Run the code by changing the data path in the ".\bug_iden_calculate_acc.py" file.
     
-### Code Review Task
+### 1.2.3 Code Review Task
 (1) Inference
 
     #export CUDA_VISIBLE_DEVICES=1,3
@@ -93,7 +93,7 @@ cd DebugEval/src/script
 (2) Evaluate
     Run the code by changing the data path in the ".\code_rev_calculate_acc.py" file.
     
-### Code Repair Task
+### 1.2.4 Code Repair Task
 (1) Inference
 
     #export CUDA_VISIBLE_DEVICES=1,3
@@ -114,8 +114,7 @@ cd DebugEval/src/script
     execute nohup bash code_repair.sh
     
 (2) Evaluate
-#### We use a self-designed OJ evaluation system to evaluate the generated code.
-#### Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.
+#### We use a self-designed OJ evaluation system to evaluate the generated code. Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.
 
 1) The results of model inference are processed in the following form
     ```
@@ -147,7 +146,7 @@ cd DebugEval/src/script
     └─Output
     ```
 
-3) Adjust the parameters in ".\oj\ CodeError_judger-main \config.yml" and then run pattern2.py.
+2) Adjust the parameters in ".\oj\ CodeError_judger-main \config.yml" and then run pattern2.py.
 
     ```yml
     # Use parameters in config.yml or in command
@@ -169,10 +168,10 @@ cd DebugEval/src/script
     memoryLimit: 1024    # MBs
     showDetails: False  # Whether to display the results of each test point
     ```
-4) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
+3) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
 
-# Fine-tune
-## For DeepSeek-Coder-6.7B-Ins
+# 2、Fine-tune
+## 2.1 DeepSeek-Coder-6.7B-Ins
 cd .\SFT\neural_compiler\src\scripts
 ```bash
 DATA_PATH="fine-tune-data" 
@@ -203,7 +202,7 @@ deepspeed --include=localhost:1,2 src/finetune/fine-tune-deepseek-coder.py \
 
 nohup bash fine-tune-deepseek-coder.sh>train.log 2>&1 &
 ```
-## For Llama3-8B-Ins
+## 2.2 For Llama3-8B-Ins
 cd .\SFT\LLaMA-Factory
 ```bash
 CUDA_VISIBLE_DEVICES=2,3  llamafactory-cli train \
