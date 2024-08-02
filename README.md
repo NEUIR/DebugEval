@@ -23,7 +23,8 @@ cd DebugEval/src/script
         --top_p 0.95 \
         --max_tokens 1024
     ```
-    execute nohup bash error_code_localization.sh   
+    execute nohup bash error_code_localization.sh 
+    
 (2) Evaluate
     Run the code by changing the data path in the ".\bug_loc_calculate_acc.py" file.
 ### for BUG Identification Task
@@ -45,6 +46,7 @@ cd DebugEval/src/script
         --max_tokens 1024
     ```
     execute nohup bash error_type_identification.sh
+
 (2) Evaluate
     Run the code by changing the data path in the ".\bug_iden_calculate_acc.py" file.
 ### for Code Review Task
@@ -65,7 +67,9 @@ cd DebugEval/src/script
         --top_p 0.95 \
         --max_tokens 1024
     ```
+
     execute nohup bash code_review.sh
+
     ```bash
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
@@ -82,7 +86,9 @@ cd DebugEval/src/script
         --top_p 0.95 \
         --max_tokens 1024
     ```
+
     execute nohup bash code_review_reversh.sh
+
 (2) Evaluate
     Run the code by changing the data path in the ".\code_rev_calculate_acc.py" file.
 ### for Code Repair Task
