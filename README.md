@@ -7,7 +7,7 @@ nohup bash serve_ckpt.sh your_model_path>serve.log 2>&1 &
 cd DebugEval/src/script
 ### for BUG Localization Task
 (1) Inference
-    ```bash
+
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
     python src/inference/main.py \
@@ -22,14 +22,14 @@ cd DebugEval/src/script
         --temperature 0.2 \
         --top_p 0.95 \
         --max_tokens 1024
-    ```
+        
     execute nohup bash error_code_localization.sh 
     
 (2) Evaluate
     Run the code by changing the data path in the ".\bug_loc_calculate_acc.py" file.
 ### for BUG Identification Task
 (1) Inference
-   ```bash
+
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
     python src/inference/main.py \
@@ -44,14 +44,14 @@ cd DebugEval/src/script
         --temperature 0.2 \
         --top_p 0.95 \
         --max_tokens 1024
-    ```
+        
     execute nohup bash error_type_identification.sh
 
 (2) Evaluate
     Run the code by changing the data path in the ".\bug_iden_calculate_acc.py" file.
 ### for Code Review Task
 (1) Inference
-    ```bash
+
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
     python src/inference/main.py \
@@ -66,11 +66,9 @@ cd DebugEval/src/script
         --temperature 0.2 \
         --top_p 0.95 \
         --max_tokens 1024
-    ```
 
     execute nohup bash code_review.sh
 
-    ```bash
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
     python src/inference/main.py \
@@ -85,7 +83,6 @@ cd DebugEval/src/script
         --temperature 0.2 \
         --top_p 0.95 \
         --max_tokens 1024
-    ```
 
     execute nohup bash code_review_reversh.sh
 
@@ -93,7 +90,7 @@ cd DebugEval/src/script
     Run the code by changing the data path in the ".\code_rev_calculate_acc.py" file.
 ### for Code Repair Task
 (1) Inference
-    ```bash
+
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
     python src/inference/main.py \
@@ -108,8 +105,9 @@ cd DebugEval/src/script
         --temperature 0.2 \
         --top_p 0.95 \
         --max_tokens 1024
-    ```
+
     execute nohup bash code_repair.sh
+    
 (2) Evaluate
 #### We use a self-designed OJ evaluation system to evaluate the generated code.
 #### Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.. 
@@ -195,9 +193,9 @@ deepspeed --include=localhost:1,2 src/finetune/fine-tune-deepseek-coder.py \
     --report_to "tensorboard" \
     --deepspeed $DS_CONFIG \
     --bf16 True \
-    --use_lora True
-```  
+    --use_lora True 
 execute nohup bash fine-tune-deepseek-coder.sh>train.log 2>&1 &
+```
 ## For Llama3-8B-Ins
 cd .\SFT\LLaMA-Factory
 ```bash
@@ -228,5 +226,5 @@ CUDA_VISIBLE_DEVICES=2,3  llamafactory-cli train \
     --val_size 0 \
     --plot_loss \
     --fp16
-```   
 execute nohup bash run.sh>train.log 2>&1 &
+```
