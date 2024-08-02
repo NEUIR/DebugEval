@@ -14,7 +14,7 @@ cd DebugEval/src/script
         --model "deepseek-6.7b" \
         --data_path "debugevalsuite_task124.jsonl" \
         --prompt_dir "src/prompts" \
-        --output_dir "" \
+        --output_dir "Your_output_path" \
         --task "error_code_localization" \
         --prompt_type "zero_shot" \
         --platform "all" \
@@ -35,7 +35,7 @@ cd DebugEval/src/script
         --model "deepseek-6.7b" \
         --data_path "debugevalsuite_task124.jsonl" \
         --prompt_dir "src/prompts" \
-        --output_dir "" \
+        --output_dir "Your_output_path" \
         --task "error_type_identification" \
         --prompt_type "zero_shot" \
         --platform "all" \
@@ -56,7 +56,7 @@ cd DebugEval/src/script
         --model "deepseek-6.7b" \
         --data_path "debugevalsuite_task124.jsonl" \
         --prompt_dir "src/prompts" \
-        --output_dir "" \
+        --output_dir "Your_output_path" \
         --task "code_review" \
         --prompt_type "zero_shot" \
         --platform "all" \
@@ -73,7 +73,7 @@ cd DebugEval/src/script
         --model "deepseek-6.7b" \
         --data_path "debugevalsuite_task124.jsonl" \
         --prompt_dir "src/prompts" \
-        --output_dir "" \
+        --output_dir "Your_output_path" \
         --task "code_review_reverse" \
         --prompt_type "zero_shot" \
         --platform "all" \
@@ -94,7 +94,7 @@ cd DebugEval/src/script
         --model "llama3_FT_cot" \
         --data_path "debugevalsuite_task3.jsonl" \
         --prompt_dir "src/prompts" \
-        --output_dir "" \
+        --output_dir "Your_output_path" \
         --task "code_repair" \
         --prompt_type "zero_shot" \
         --platform "all" \
@@ -106,7 +106,7 @@ cd DebugEval/src/script
     execute nohup bash code_repair.sh
 (2) Evaluate
 ### We use a self-designed OJ evaluation system to evaluate the generated code
-#### Due to the large number of test cases of the original data, we could not upload such a large file, so we sample half of the data and keep their test cases for everyone to test. 
+#### Due to the large number of test cases of the original data, we could not upload such a large file, so we sample 40 pieces of data and keep their test cases for everyone to test, The full test case will be open sourced to Github.. 
 1) The results of model inference are processed in the following form
    
       atcoder_code_error_judge
@@ -137,7 +137,7 @@ cd DebugEval/src/script
     └─Output
 
 3) Adjust the parameters in ".\oj\ CodeError_judger-main \config.yml" and then run pattern2.py.
-   """
+
     # Use parameters in config.yml or in command
     use_config: True # Use parameters in config.yml when it's true, use parameters in command when it's false
     
@@ -156,8 +156,8 @@ cd DebugEval/src/script
     timeLimit: 10        # seconds
     memoryLimit: 1024    # MBs
     showDetails: False  # Whether to display the results of each test point
-"""
-5) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
+
+4) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
 
 # Fine-tune
 # For DeepSeek-Coder-6.7B-Ins
