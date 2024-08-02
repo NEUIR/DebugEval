@@ -137,7 +137,27 @@ cd DebugEval/src/script
     └─Output
 
 3) Adjust the parameters in ".\oj\ CodeError_judger-main \config.yml" and then run pattern2.py.
-4) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
+   """
+    # Use parameters in config.yml or in command
+    use_config: True # Use parameters in config.yml when it's true, use parameters in command when it's false
+    
+    # Pattern1: For one problem testing
+    problem_name: "abc275_A" # the problem you want to test
+    multi_code_dir: D:/_Code_/ABC Data/codes of one user/abc275_A  # one problem, many code for the problem
+    
+    # Pattern2: For multi-problem testing
+    code_dir: ./atcoder_code_error_judge/code  # many problems, many code for each problem
+    
+    # All the input and output data
+    input_dir: ./atcoder_code_error_judge/Input
+    answer_dir: ./atcoder_code_error_judge/Output
+    
+    # timeLimit and memoryLimit for all problems
+    timeLimit: 10        # seconds
+    memoryLimit: 1024    # MBs
+    showDetails: False  # Whether to display the results of each test point
+"""
+5) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
 
 # Fine-tune
 # For DeepSeek-Coder-6.7B-Ins
