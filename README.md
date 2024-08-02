@@ -62,7 +62,7 @@ cd DebugEval/src/script
     #export CUDA_VISIBLE_DEVICES=1,3
     #model ['deepseek_FT_cot','deepseek_FT_no_cot','llama3_FT_cot','llama3_FT_no_cot',other model name]
     python src/inference/main.py \
-        --model "llama3_FT_cot" \
+        --model "deepseek-6.7b" \
         --data_path "debugevalsuite_task3.jsonl" \
         --prompt_dir "src/prompts" \
         --output_dir "Your_output_path" \
