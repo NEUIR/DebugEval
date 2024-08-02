@@ -108,6 +108,7 @@ cd DebugEval/src/script
 ### We use a self-designed OJ evaluation system to evaluate the generated code
 #### Due to the large number of test cases of the original data, we could not upload such a large file, so we sample half of the data and keep their test cases for everyone to test. 
 1) The results of model inference are processed in the following form
+   
   atcoder_code_error_judge
 │  
 ├─Python_Code
@@ -134,6 +135,7 @@ cd DebugEval/src/script
 ├─Input
 │          
 └─Output
+
 3) Adjust the parameters in ".\oj\ CodeError_judger-main \config.yml" and then run pattern2.py.
 4) Run the code by changing the data path in the ".\code_rep_calculate_acc.py" file.
 
