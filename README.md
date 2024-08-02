@@ -108,7 +108,6 @@ cd DebugEval/src/script
         │          
         └─Output
     ```
-    
     2) Adjust the parameters in "OJ_Evaluate\ CodeError_judger-main \config.yml" and then run pattern2.py.
     
         ```yml
@@ -130,8 +129,7 @@ cd DebugEval/src/script
         timeLimit: 10        # seconds
         memoryLimit: 1024    # MBs
         showDetails: False   # Whether to display the results of each test point
-        ```
-        
+        ```  
     3) Run the code by changing the data path in the "OJ_Evaluate\code_rep_calculate_acc.py" file.
  
 ### 1.2.4 Code Review Task
