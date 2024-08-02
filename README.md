@@ -7,6 +7,7 @@ nohup bash serve_ckpt.sh your_model_path>serve.log 2>&1 &
 cd DebugEval/src/script
 ## for BUG Localization Task
 (1) Inference
+
     nohup bash error_code_localization.sh
     
     #export CUDA_VISIBLE_DEVICES=1,3
