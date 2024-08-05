@@ -1,0 +1,19 @@
+Given a programming task and two code snippets, one of which is incorrect, please pick it out.
+Note:
+1. In your response, the final answer should be in the following format: <Answer>Code-A</Answer> or <Answer>Code-B</Answer>
+
+Task:
+
+%%%Task%%%
+
+Code-A:
+
+%%%correct_code%%%
+
+Code-B:
+
+%%%buggy_code%%%
+
+Please select the buggy code snippet from Code-A or Code-B.
+
+Answer:

@@ -1,0 +1,22 @@
+Given a programming task, its incorrect solution and the options. The code snippets in the options are all from the Incorrect solution. Only one option belong to the error code snippet(s) in the original incorrect solution. Please select the option for error code snippet(s).
+
+Note:
+- This task requires you to choose just one option.
+- In your response, the final answer should be in the following format: <Answer>(Option)</Answer>.
+- For example, your output format should like <Answer>(A)</Answer>.
+
+Task:
+%%%Task%%%
+
+
+Incorrect_Solution:
+%%%Incorrect_Solution%%%
+
+
+Options:
+%%%Options%%%
+
+
+Answer:
+<Answer>
+

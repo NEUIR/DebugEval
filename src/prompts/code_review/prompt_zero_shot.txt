@@ -1,0 +1,17 @@
+Given a programming task and two code snippets, one of which is incorrect, please pick it out.
+
+Task:
+
+%%%Task%%%
+
+Code-A:
+
+%%%buggy_code%%%
+
+Code-B:
+
+%%%correct_code%%%
+
+Please select the buggy code snippet from Code-A or Code-B.
+
+Your response:Code-

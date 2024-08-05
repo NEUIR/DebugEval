@@ -1,0 +1,26 @@
+Given a programming task and its incorrect solution, choose the correct error type in the solution from the following four error types.
+(A) Syntax Error: Syntax errors typically occur due to spelling mistakes, incorrect syntax structures, or indentation issues in the code.
+(B) Reference Error: Reference errors typically occur when attempting to access non-existent variables, functions, properties, or indices.
+(C) Logical Error: Logical errors typically occur when the code does not produce the expected output due to incorrect logic or algorithm.
+(D) Multiple Errors: If there are multiple error types in the code, choose this option and do not choose any other options.
+
+Note:
+- This task requires you to choose just one option, if there are multiple error types in the code, just choose option (D) Multiple Errors and do not choose any other options.
+- In your response, the final answer should be in the following format: <Answer>(Option)</Answer>. For example, if you think the error type is Syntax Error, your answer should be <Answer>(A)</Answer>.
+
+
+Task:
+%%%Task%%%
+
+Incorrect_Solution:
+%%%Incorrect_Solution%%%
+
+The error type of the incorrect solution is:
+Options:
+(A) Syntax Error
+(B) Reference Error
+(C) Logical Error
+(D) Multiple Errors
+
+
+Answer:
