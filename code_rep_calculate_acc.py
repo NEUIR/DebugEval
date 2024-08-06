@@ -5,8 +5,13 @@ data_path = 'debugevalsuite_task3_python.jsonl'
 
 if 'python' in data_path:
     panduan = 'responses_success'
-else:
+    lang = 'python'
+elif 'java' in data_path:
     panduan = 'result'
+    lang = 'java'
+elif 'cpp' in data_path:
+    panduan = 'result'
+    lang = 'cpp'
 
 question_error = {}
 
@@ -17,7 +22,8 @@ def read_jsonl_file(path):
     with open(path,'r',encoding='utf8') as f:
         for line in f:
             item = json.loads(line)
-            data.append(item)
+            if item['language'] == lang:
+                data.append(item)
     return data
 
 results = read_jsonl_file(result_path)
