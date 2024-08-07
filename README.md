@@ -18,7 +18,8 @@ DebugEval designs four task scenarios: BUG Localization, BUG Identification, Cod
 ![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/benchmark_00.png)
 ### 1.2 MASTER
 MASTER is a framework for making use of multiple agents working together to refine training data to improve code debugging capability in LLMs.
-![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/model_picture_00.png)
+
+![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/model%20picture_00.png)
 ## 2. Installation
 You can clone the repository using the following command:
 
