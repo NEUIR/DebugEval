@@ -53,7 +53,7 @@ python src/inference/main.py \
 
 #### (2) Evaluate Stage
 
-Run the "`bug_loc_calculate_acc.py`" file and change the corresponding data and results path.
+Run the `bug_loc_calculate_acc.py` file and change the corresponding data and results path.
 
 ### 2.2 BUG Identification Task
 #### (1) Inference Stage
@@ -79,7 +79,7 @@ python src/inference/main.py \
 
 #### (2) Evaluate Stage
 
-Run the "`bug_iden_calculate_acc.py`" file and change the corresponding data and results path.
+Run the `bug_iden_calculate_acc.py` file and change the corresponding data and results path.
 
 ### 2.3 Code Repair Task
 #### (1) Inference Stage
@@ -105,7 +105,7 @@ python src/inference/main.py \
 
 #### (2) Evaluate Stage
 We use a self-designed OJ evaluation system to evaluate the generated code.
-1) You must put the Input and Output folders in the "Data\test_cases" directory into the "OJ_Evaluation\atcoder_code_error_judge" directory.
+1) You must put the Input and Output folders in the `Data\test_cases` directory into the `OJ_Evaluation\atcoder_code_error_judge` directory.
 
 2) The results of model inference are processed in the following form:
 
@@ -138,7 +138,7 @@ We use a self-designed OJ evaluation system to evaluate the generated code.
 └─Output
 ```
 
-2) Adjust the parameters in "`OJ_Evaluate\CodeError_judger-main\config.yml`" and then run pattern2.py.
+2) Adjust the parameters in `OJ_Evaluate\CodeError_judger-main\config.yml` and then run pattern2.py.
 
 ```yaml
 # Use parameters in config.yml or in command
@@ -161,7 +161,7 @@ memoryLimit: 1024    # MBs
 showDetails: False   # Whether to display the results of each test point
 ```
 
-3) Run the "`code_rep_calculate_acc.py`" file and change the corresponding data and results path.
+3) Run the `code_rep_calculate_acc.py` file and change the corresponding data and results path.
    
 4) For the Python data, you can also choose to use our multi-threaded evaluation system, speed up evaluation.
   
@@ -170,7 +170,7 @@ showDetails: False   # Whether to display the results of each test point
   python check.py
   ```
 
-  You just need to change the data path in the "`check.py`" file.
+  You just need to change the data path in the `check.py` file.
 
 ### 2.4 Code Review Task
 
@@ -214,4 +214,4 @@ python src/inference/main.py \
 
 #### (2) Evaluate Stage
 
-Run the "`code_rev_calculate_acc.py`" file and change the corresponding data and results path.
+Run the `code_rev_calculate_acc.py` file and change the corresponding data and results path.
