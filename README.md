@@ -54,6 +54,7 @@ We provide the trained NeuDebugger models.
 
 ![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/models%20performance_00.png)
 ## 6. Citation
+Please cite the paper and star the repo if you use DebugEval and find it helpful.
 ```
 @article{DebugEval2024,
       title={Enhancing the Code Debugging Ability of LLMs via Communicative Agent Based Data Refinement}, 
