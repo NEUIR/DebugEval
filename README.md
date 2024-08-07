@@ -52,3 +52,10 @@ Please refer to `LLaMA-Factory/README.md` for more details.
 We provide the trained NeuDebugger models.
 
 ## 5. Citation
+```
+@article{DebugEval2024,
+      title={Enhancing the Code Debugging Ability of LLMs via Communicative Agent Based Data Refinement}, 
+      author={},
+      year={2024},
+}
+```
