@@ -6,7 +6,6 @@ Communicative Agent Based Data Refinement".
     <a href="">📜 Paper</a> •
     <a href="https://drive.google.com/file/d/1f7WbR4W_3PwLhLgQWi_0ftegmhXEUMgO/view?usp=drive_link">🤗 Data </a> •
     <a href="https://drive.google.com/file/d/1Xk-qni-o-HXPHXlBfMBby-tp_2MvTMYe/view?usp=drive_link">🤖 Model </a> •
-    <a href="">🏆 Leaderboard</a> 
 </p>
 
 ## 1. Introduction
@@ -53,8 +52,7 @@ We provide the trained NeuDebugger models.
 
 ## 5. Result
 
-![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/model%20picture_00.png)
-
+![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/models%20performance_00.png)
 ## 6. Citation
 ```
 @article{DebugEval2024,
