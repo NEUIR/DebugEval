@@ -1,3 +1,14 @@
+# Install
+
+Install dependencies:
+
+```sh
+conda create -n your_env_name python==3.10
+conda activate your_env_name
+pip install -r requirements.txt
+cd DebugEval
+```
+
 # Configuration
 
 Some package versions are as follows:
