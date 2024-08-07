@@ -11,7 +11,7 @@ cd DebugEval/src
 
 # Inference and Evaluation of DebugEval
 
-## 1.Deploy the LLM to be evaluated
+## 1. Deploy the LLM to be evaluated
 
 We use vLLM to deploy the LLM we are going to evaluate, and we will call this model in subsequent tests. In our experiments, 2✖️80G A800 are used for the deployment 7B model and 4✖️80G A800 are used for the deployment 70B model.
 
