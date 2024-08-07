@@ -6,7 +6,7 @@ Install dependencies:
 conda create -n your_env_name python==3.10
 conda activate your_env_name
 pip install -r requirements.txt
-cd DebugEval
+cd DebugEval/neural_compiler
 ```
 
 # Configuration
