@@ -17,6 +17,7 @@ You can clone the repository using the following command:
 git clone DebugEval
 cd DebugEval
 ```
+![Uploading benchmark_00.png…]()
 
 ## 3.Inference and Evaluation
 
