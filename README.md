@@ -1,4 +1,4 @@
-# DebugEval
+# DebugEval 🕷️
 Official repository for the paper "Enhancing the Code Debugging Ability of LLMs via
 Communicative Agent Based Data Refinement".
 
