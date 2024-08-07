@@ -5,7 +5,7 @@ Communicative Agent Based Data Refinement".
 <p align="center">
     <a href="">📜 Paper</a> •
     <a href="https://drive.google.com/file/d/1f7WbR4W_3PwLhLgQWi_0ftegmhXEUMgO/view?usp=drive_link">🤗 Data </a> •
-    <a href="https://drive.google.com/file/d/1Xk-qni-o-HXPHXlBfMBby-tp_2MvTMYe/view?usp=drive_link">🤖 Model </a> •
+    <a href="https://drive.google.com/file/d/1Xk-qni-o-HXPHXlBfMBby-tp_2MvTMYe/view?usp=drive_link">🤖 Model </a>
 </p>
 
 ## 1. Introduction
