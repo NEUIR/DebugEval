@@ -4,6 +4,7 @@ Official repository for the paper ""
 <p align="center">
     <a href="">📜 Paper</a> •
     <a href="">🤗 Data </a> •
+    <a href="">🤖 Model </a> •
     <a href="">🏆 Leaderboard</a> 
 </p>
 
