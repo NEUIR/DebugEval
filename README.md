@@ -29,7 +29,21 @@ cd DebugEval
 ```
 
 ## 3. Inference and Evaluation
-
+```
+cd src
+```
+Please refer to README.md for more details.
 ## 4. Fine-Tuning
+We use DeepSeek-Coder-6.7B-Ins and Llama3-8B-Ins as the base model, and train the models with MASTER framework.
 
+### 4.1 For DeepSeek-Coder-6.7B-Ins
+```
+cd neural_compiler
+```
+Please refer to README.md for more details.
+### 4.2 For Llama3-8B-Ins
+```
+cd LLaMA-Factory
+```
+Please refer to README.md for more details.
 ## 5. Citation
