@@ -51,7 +51,11 @@ Please refer to `LLaMA-Factory/README.md` for more details.
 
 We provide the trained NeuDebugger models.
 
-## 5. Citation
+## 5. Result
+
+![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/model%20picture_00.png)
+
+## 6. Citation
 ```
 @article{DebugEval2024,
       title={Enhancing the Code Debugging Ability of LLMs via Communicative Agent Based Data Refinement}, 
