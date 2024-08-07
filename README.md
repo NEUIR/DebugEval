@@ -11,10 +11,13 @@ Communicative Agent Based Data Refinement".
 
 ## 1. Introduction
 This paper presents a benchmark, DebugEval, which is used to evaluate the code debugging ability of LLMs (Large Language Models) and proposals a framework for building training data using multiple agents, MASTER.
+
 ### 1.1 Benchmark
 DebugEval designs four task scenarios: BUG Localization, BUG Identification, Code Repair, and Code Review to comprehensively evaluate the code debugging capability of LLMs.
+
 ### 1.2 MASTER
-MASTE is a framework for making use of multiple agents working together to refine training data to improve code debugging capability in LLMs.
+MASTER is a framework for making use of multiple agents working together to refine training data to improve code debugging capability in LLMs.
+
 ## 2. Installation
 You can clone the repository using the following command:
 
