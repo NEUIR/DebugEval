@@ -5,7 +5,7 @@ We use the open source framework LLaMA-Factory (https://github.com/hiyouga/LLaMA
 
 1) You need to put `Data/train/fine-tune-dataset.json` into the `LLaMA-Factory/data directory` and add a custom dataset name to `dataset_info.json`.
 
-2) Put the run.sh file into the LLaMA-Factory directory, modify the file parameters in run.sh, and then execute the file.
+2) Put the `run.sh` file into the LLaMA-Factory directory, modify the file parameters in run.sh, and then execute the file.
 
     The bash file contains:
     ```bash
