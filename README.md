@@ -14,8 +14,8 @@ Communicative Agent Based Data Refinement".
 You can clone the repository using the following command:
 
 ```
-git clone xxx
-cd xxx
+git clone DebugEval
+cd DebugEval
 ```
 
 ## 3.Inference and Evaluation
