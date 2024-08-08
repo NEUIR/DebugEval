@@ -58,7 +58,7 @@ Please cite the paper and star the repo if you use DebugEval and find it helpful
 ```
 @article{DebugEval2024,
       title={Enhancing the Code Debugging Ability of LLMs via Communicative Agent Based Data Refinement}, 
-      author={},
+      author={Weiqing Yang, Hanbin Wang, Zhenghao Liu, Xinze Li, etc},
       year={2024},
 }
 ```
