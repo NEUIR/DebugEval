@@ -52,7 +52,7 @@ We provide the trained NeuDebugger models.
 
 ## 5. Result
 
-![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/models%20performance_00.png)
+![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/performance_00.png)
 ## 6. Citation
 Please cite the paper and star the repo if you use DebugEval and find it helpful.
 ```
