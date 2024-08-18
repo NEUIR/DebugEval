@@ -55,6 +55,7 @@ We provide the trained NeuDebugger models.
 ![image](https://github.com/NEUIR/DebugEval/blob/main/Figure/performance_00.png)
 ## 6. Citation
 Please cite the paper and star the repo if you use DebugEval and find it helpful.
+
 Feel free to contact 2301983@stu.neu.edu.cn or open an issue if you have any questions.
 ```
 @article{DebugEval2024,
