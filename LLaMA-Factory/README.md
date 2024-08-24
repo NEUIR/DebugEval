@@ -12,13 +12,13 @@ We use the open source framework LLaMA-Factory (https://github.com/hiyouga/LLaMA
     CUDA_VISIBLE_DEVICES=2,3  llamafactory-cli train \
         --stage sft \
         --do_train \
-        --model_name_or_path MODEL_PATH \
-        --dataset  your_data_name\
+        --model_name_or_path {MODEL_PATH} \
+        --dataset {your_data_name}\
         --dataset_dir LLaMA-Factory/data \
         --template llama3 \
         --finetuning_type lora \
         --lora_target all \
-        --output_dir  Your_output_path\
+        --output_dir  {Your_output_path}\
         --overwrite_cache \
         --overwrite_output_dir \
         --cutoff_len 2048 \
