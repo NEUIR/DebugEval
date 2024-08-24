@@ -138,7 +138,7 @@ We use a self-designed OJ evaluation system to evaluate the generated code.
 └─Output
 ```
 
-2) Adjust the parameters in `OJ_Evaluate\CodeError_judger-main\config.yml` and then run pattern2.py.
+2) Adjust the parameters in `OJ_Evaluate\CodeError_judger-main\config.yml` and then run `pattern2.py`.
 
 ```yaml
 # Use parameters in config.yml or in command
