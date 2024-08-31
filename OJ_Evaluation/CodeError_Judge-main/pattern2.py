@@ -10,7 +10,44 @@ def load_config(filename):
     with open(filename, 'r') as config_file:
         config = yaml.safe_load(config_file)
     return config
+    
+def estimate_pass_at_k(num_samples, num_correct, k):
+    """Estimates pass@k of each problem and returns them in an array."""
 
+    def estimator(n: int, c: int, k: int) -> float:
+        """Calculates 1 - comb(n - c, k) / comb(n, k)."""
+        if n - c < k:
+            return 1.0
+        return 1.0 - np.prod(1.0 - k / np.arange(n - c + 1, n + 1))
+
+    import itertools
+
+    if isinstance(num_samples, int):
+        num_samples_it = itertools.repeat(num_samples, len(num_correct))
+    else:
+        assert len(num_samples) == len(num_correct)
+        num_samples_it = iter(num_samples)
+
+    return np.array(
+        [estimator(int(n), int(c), k) for n, c in zip(num_samples_it, num_correct)]
+    )
+    
+def calculate_pass_at_k(results, k_list=[1, 5]):
+    # Calculate pass@k.
+    total, correct = [], []
+    for result in results:
+        passed = [result]
+        total.append(len(passed))
+        correct.append(sum(passed))
+    total = np.array(total)
+    correct = np.array(correct)
+
+    ks = k_list
+    pass_at_k = {f"pass@{k}": estimate_pass_at_k(total, correct, k).mean()
+                 for k in ks if (total >= k).all()}
+    # print(pass_at_k)
+    return pass_at_k
+    
 def Main(path):
     f = open(path,'w',encoding='utf8')
     config = load_config('config.yml')
@@ -79,7 +116,7 @@ def Main(path):
                         all_result.append(0)
         except:
             print('error')
-    print(f'pass@1:{np.mean(all_result)}')
+    print(calculate_pass_at_k(all_result))
                 
 if __name__ == '__main__':
     out_path = ''
