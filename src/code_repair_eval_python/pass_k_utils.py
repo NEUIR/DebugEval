@@ -71,7 +71,7 @@ def pass_at_k(n,c,k):
         return 1.0-np.prod(1.0-k/np.arange(n-c+1,n+1))
 
 if __name__ == '__main__':
-    file_path = '/data3/yangweiqing/ft-ds-results/ds-chat-lora-3.5w/code_repair/zero_shot/atcoder_result.jsonl'
+    file_path = ''
     results = read_jsonl_file(file_path)
     pass_1 = calculate_pass_at_k(results)
     print(pass_1)
