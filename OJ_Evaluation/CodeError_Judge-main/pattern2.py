@@ -115,6 +115,7 @@ def Main(path):
                     else:
                         all_result.append(0)
         except:
+            all_result.append(0)
             print('error')
     print(calculate_pass_at_k(all_result))
                 
