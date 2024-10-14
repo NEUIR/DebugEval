@@ -4,7 +4,7 @@ pres_path = 'code_review/zero_shot/pres_zero_shot.txt'
 reverse_refs_path = 'code_review_reverse/zero_shot/refs_zero_shot.txt'
 reverse_pres_path = 'code_review_reverse/zero_shot/pres_zero_shot.txt'
 
-path = 'task124.jsonl'
+path = 'debugevalsuite_task124.jsonl'
 
 refs = ['Code-'+i.strip() for i in open(refs_path,'r',encoding='utf8').readlines()]
 pres = [i.strip() for i in open(pres_path,'r',encoding='utf8').readlines()]
