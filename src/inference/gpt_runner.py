@@ -7,7 +7,7 @@ api_key = ""
 def gpt_runner(args,messages):
     import openai
 
-    openai.api_key = api_key  # 令牌处创建，获得
+    openai.api_key = api_key 
     openai.api_base = 'https://www.jcapikey.com/v1'
 
     openai.default_headers = {"x-foo": "true"}
