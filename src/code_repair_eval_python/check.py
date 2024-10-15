@@ -73,7 +73,6 @@ def main(file_path,output_path,private_test_cases_path):
         for line in file:
             private_test_cases.append(json.loads(line))
 
-    # new_data根据question_id排序
 
     new_data = sorted(data, key=lambda x: x['question_id'])
     new_test_cases = sorted(private_test_cases, key=lambda x:x['question_id'])
