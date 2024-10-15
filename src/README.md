@@ -5,7 +5,7 @@ Install dependencies:
 ```sh
 conda create -n your_env_name python==3.10
 conda activate your_env_name
-pip install vllm==0.2.7
+pip install vllm
 cd DebugEval/src
 ```
 
