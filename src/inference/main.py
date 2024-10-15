@@ -441,7 +441,6 @@ def main():
     elif args.task == "code_review":
         references = []
         predictions = []
-        # 使用prompt_type来区分不同的评估函数
         if 'codellama' in args.model:
             if args.prompt_type == "zero_shot":
                 post_process_func = codellama_post_process.post_process_code_review_zero_shot
@@ -469,7 +468,6 @@ def main():
     elif args.task == "code_review_reverse":
         references = []
         predictions = []
-        # 使用prompt_type来区分不同的评估函数
         if 'codellama' in args.model:
             if args.prompt_type == "zero_shot":
                 post_process_func = codellama_post_process.post_process_code_review_zero_shot
