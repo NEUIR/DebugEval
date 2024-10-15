@@ -5,7 +5,7 @@ def Qwen_runner(args,messages):
 
     client = OpenAI(
         api_key='',
-        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",  # 填写DashScope服务的base_url
+        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
     )
     response = client.chat.completions.create(
         model=args.model,
